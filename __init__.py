@@ -8,13 +8,13 @@ import time
 from typing import Any, Dict, Optional
 
 from plugin.sdk.plugin import (
+    Err,
     NekoPluginBase,
+    Ok,
+    SdkError,
     lifecycle,
     neko_plugin,
     plugin_entry,
-    Ok,
-    Err,
-    SdkError,
     tr,
     ui,
 )
@@ -24,8 +24,7 @@ from .config_store import BiliDMConfigStore
 from .permission import PermissionManager
 from .qr_login import BiliDMQrLogin
 
-
-UI_ASSET_VERSION = "1.2.2"
+UI_ASSET_VERSION = "1.2.3"
 
 
 def build_open_ui_payload(*, plugin_id: str, available: bool) -> dict[str, Any]:
@@ -1545,6 +1544,7 @@ class BiliDMPlugin(NekoPluginBase):
         if permission_level == "admin" and channel_kind == "dm":
             try:
                 import httpx
+
                 from config import MEMORY_SERVER_PORT
 
                 async with httpx.AsyncClient(
@@ -1818,6 +1818,7 @@ class BiliDMPlugin(NekoPluginBase):
     ) -> dict[str, Any]:
         """发送对话历史到 Memory Server"""
         import httpx
+
         from config import MEMORY_SERVER_PORT
 
         async with httpx.AsyncClient() as client:

@@ -11,7 +11,6 @@ import secrets
 import time
 from typing import Any, Awaitable, Callable
 
-
 CredentialSaver = Callable[[dict[str, str]], Awaitable[bool]]
 
 

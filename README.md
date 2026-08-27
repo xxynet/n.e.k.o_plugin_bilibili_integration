@@ -112,7 +112,7 @@ uv run python -m plugin.neko_plugin_cli.cli check -r bilibili_integration
 ```
 
 运行时依赖由 `pyproject.toml` 声明。发布前同步到 `vendor/`；生成的 `vendor/`
-目录不提交到仓库。推送与 `plugin.toml` 版本一致的标签（例如 `v1.2.2`）会由
+目录不提交到仓库。推送与 `plugin.toml` 版本一致的标签（例如 `v1.2.3`）会由
 GitHub Actions 创建 `.neko-plugin` 发布资产。
 
 ## 文件结构

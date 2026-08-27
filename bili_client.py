@@ -8,15 +8,15 @@ B站集成客户端封装（基于 bilibili_api）
 import asyncio
 import base64
 import json
-import os
 import time
 from collections import OrderedDict, deque
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 import httpx
 from bilibili_api import Credential
-from bilibili_api.session import Session, EventType, Event
-from bilibili_api.user import User as BiliUser, get_self_info
+from bilibili_api.session import Event, EventType, Session
+from bilibili_api.user import User as BiliUser
+from bilibili_api.user import get_self_info
 from bilibili_api.video import Video as BiliVideo
 
 
@@ -975,7 +975,7 @@ class BiliDMClient:
                         message["content"] = (
                             f"[分享视频] {title}\nUP主: {owner_name} | 播放: {view} | 点赞: {like}\n{url}"
                         )
-                    except Exception as e:
+                    except Exception:
                         bvid = getattr(content, "bvid", "")
                         message["content"] = (
                             f"[分享视频] https://www.bilibili.com/video/{bvid}"
@@ -1062,8 +1062,8 @@ class BiliDMClient:
 
     async def send_text(self, user_id: str, text: str):
         """发送文本私信"""
-        from bilibili_api.session import send_msg
         from bilibili_api.session import EventType as SessionEventType
+        from bilibili_api.session import send_msg
 
         await send_msg(self._credential, int(user_id), SessionEventType.TEXT, text)
         if self.logger:
@@ -1071,8 +1071,8 @@ class BiliDMClient:
 
     async def send_image(self, user_id: str, image_source: str):
         """发送图片私信，支持 URL 和 base64 两种来源"""
-        from bilibili_api.session import send_msg
         from bilibili_api.session import EventType as SessionEventType
+        from bilibili_api.session import send_msg
         from bilibili_api.utils.picture import Picture
 
         if image_source.startswith("data:"):
