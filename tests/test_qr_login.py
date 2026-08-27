@@ -3,7 +3,6 @@ from __future__ import annotations
 from types import SimpleNamespace
 
 import pytest
-
 from plugin.plugins.bilibili_integration.qr_login import BiliDMQrLogin
 
 

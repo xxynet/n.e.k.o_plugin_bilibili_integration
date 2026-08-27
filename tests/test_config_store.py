@@ -9,7 +9,6 @@ from types import SimpleNamespace
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-
 from plugin.plugins.bilibili_integration import BiliDMPlugin
 from plugin.plugins.bilibili_integration.bili_client import BiliDMClient
 from plugin.plugins.bilibili_integration.config_store import BiliDMConfigStore
@@ -1431,10 +1430,10 @@ def test_static_ui_assets_are_versioned_and_not_cached():
     )
 
     assert 'cache_control="no-cache, no-store, must-revalidate"' in plugin_source
-    assert 'UI_ASSET_VERSION = "1.2.3"' in plugin_source
-    assert "style.css?v=1.2.3" in page
-    assert "i18n.js?v=1.2.3" in page
-    assert "script.js?v=1.2.3" in page
+    assert 'UI_ASSET_VERSION = "1.2.4"' in plugin_source
+    assert "style.css?v=1.2.4" in page
+    assert "i18n.js?v=1.2.4" in page
+    assert "script.js?v=1.2.4" in page
 
 
 def test_qr_login_panel_can_be_cancelled_and_auto_closes_after_success():
