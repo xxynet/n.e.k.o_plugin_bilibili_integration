@@ -219,5 +219,6 @@
   "ui.dynamic.image_too_large": "As imagens não podem estar vazias e devem ter no máximo 10 MiB cada.",
   "ui.dynamic.not_configured": "Salve primeiro suas credenciais do Bilibili.",
   "ui.dynamic.failed": "Não foi possível publicar. Verifique o login e as fontes das imagens.",
-  "ui.dynamic.uncertain": "Não foi possível confirmar o resultado. Verifique suas dinâmicas no Bilibili antes de publicar novamente para evitar duplicatas."
+  "ui.dynamic.uncertain": "Não foi possível confirmar o resultado. Verifique suas dinâmicas no Bilibili antes de publicar novamente para evitar duplicatas.",
+  "tools.publish_dynamic.description": "Publica uma dinâmica pública no Bilibili com a conta configurada. text é texto simples (até 2000 caracteres); images é uma lista opcional de até 9 URLs HTTP(S) ou URLs de dados de imagem em Base64 (PNG, JPEG, GIF, WebP; 10 MiB cada). Forneça texto ou imagens. Retorna dynamic_id e url. Não é necessário iniciar a escuta. Se o resultado for incerto, não tente novamente automaticamente; verifique primeiro as dinâmicas no Bilibili."
 }

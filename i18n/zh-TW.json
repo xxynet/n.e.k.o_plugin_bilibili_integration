@@ -219,5 +219,6 @@
   "ui.dynamic.image_too_large": "圖片不得為空，每張最多 10 MiB。",
   "ui.dynamic.not_configured": "請先儲存 B站登入憑證。",
   "ui.dynamic.failed": "動態發布失敗，請檢查登入狀態與圖片來源。",
-  "ui.dynamic.uncertain": "暫時無法確認發布結果，請先查看 B站動態頁，確認後再發布，避免重複。"
+  "ui.dynamic.uncertain": "暫時無法確認發布結果，請先查看 B站動態頁，確認後再發布，避免重複。",
+  "tools.publish_dynamic.description": "使用已設定帳號發布公開的 B站動態。text 為一般文字（最多 2000 字）；images 為選填圖片清單，最多 9 個 HTTP(S) URL 或 Base64 圖片資料 URL，支援 PNG、JPEG、GIF、WebP，每張最多 10 MiB。文字或圖片至少提供一項。傳回 dynamic_id 和 url。無需開啟監聽。發布結果不確定時，請勿自動重試，應先檢查 B站動態頁。"
 }

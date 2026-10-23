@@ -219,5 +219,6 @@
   "ui.dynamic.image_too_large": "图片不能为空，每张最多 10 MiB。",
   "ui.dynamic.not_configured": "请先保存 B站登录凭据。",
   "ui.dynamic.failed": "动态发布失败，请检查登录状态与图片来源。",
-  "ui.dynamic.uncertain": "暂时无法确认发布结果，请先查看 B站动态页，确认后再发布，避免重复。"
+  "ui.dynamic.uncertain": "暂时无法确认发布结果，请先查看 B站动态页，确认后再发布，避免重复。",
+  "tools.publish_dynamic.description": "使用已配置账号发布公开的 B站动态。text 为普通文本（最多 2000 字）；images 为可选图片列表，最多 9 个 HTTP(S) URL 或 Base64 图片数据 URL，支持 PNG、JPEG、GIF、WebP，每张最多 10 MiB。文字或图片至少提供一项。返回 dynamic_id 和 url。无需开启监听。发布结果不确定时，不要自动重试，应先检查 B站动态页。"
 }

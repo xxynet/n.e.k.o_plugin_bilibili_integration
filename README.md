@@ -84,6 +84,10 @@
 
 保存登录凭据后，在插件面板的「发布 B站动态」区域填写内容，选择本地图片或输入图片 URL，然后点击「发布动态」。无需开启私信或评论监听。发布成功后可直接打开动态链接。
 
+插件启动后，会向聊天 AI 注册 `publish_bilibili_dynamic` 工具。保存 B站登录凭据后，可在聊天中让 AI 编写并发布文字或图文动态。工具使用与面板相同的校验和发布逻辑，成功返回动态 ID 与链接，失败明确标记为工具错误；结果不确定时不会自动重试。
+
+插件仍为 `passive = true`，通过聊天模型的直接工具调用执行，不参与 Agent 自动插件选择。未新增定时或自主发布触发器。工具处理预算为 50 秒（包括等待配置锁），注册的调用超时为 60 秒。
+
 也可调用插件入口 `publish_dynamic`：
 
 ```json
@@ -131,7 +135,7 @@ uv run python -m plugin.neko_plugin_cli.cli check -r bilibili_integration
 ```
 
 运行时依赖由 `pyproject.toml` 声明。发布前同步到 `vendor/`；生成的 `vendor/`
-目录不提交到仓库。推送与 `plugin.toml` 版本一致的标签（例如 `v1.3.0`）会由
+目录不提交到仓库。推送与 `plugin.toml` 版本一致的标签（例如 `v1.3.1`）会由
 GitHub Actions 创建 `.neko-plugin` 发布资产。
 
 ## 文件结构

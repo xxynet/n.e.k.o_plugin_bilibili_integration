@@ -219,5 +219,6 @@
   "ui.dynamic.image_too_large": "Images must be nonempty and at most 10 MiB each.",
   "ui.dynamic.not_configured": "Save your Bilibili login credentials first.",
   "ui.dynamic.failed": "Unable to publish. Check your login status and image sources.",
-  "ui.dynamic.uncertain": "The publication result is uncertain. Check your Bilibili feed before publishing again to avoid duplicates."
+  "ui.dynamic.uncertain": "The publication result is uncertain. Check your Bilibili feed before publishing again to avoid duplicates.",
+  "tools.publish_dynamic.description": "Publish a public Bilibili dynamic using the configured account. text is plain text (up to 2000 characters); images is an optional list of up to 9 HTTP(S) URLs or base64 image data URLs (PNG, JPEG, GIF, WebP; 10 MiB each). Provide text or images. Returns dynamic_id and url. Listening is not required. Do not automatically retry when the publication result is uncertain; check the Bilibili feed first."
 }

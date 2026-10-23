@@ -219,5 +219,6 @@
   "ui.dynamic.image_too_large": "画像は空でなく、各10 MiB以下にしてください。",
   "ui.dynamic.not_configured": "先にBilibiliのログイン情報を保存してください。",
   "ui.dynamic.failed": "投稿できませんでした。ログイン状態と画像の取得元を確認してください。",
-  "ui.dynamic.uncertain": "投稿結果を確認できません。重複を防ぐため、再投稿の前にBilibiliの動態ページを確認してください。"
+  "ui.dynamic.uncertain": "投稿結果を確認できません。重複を防ぐため、再投稿の前にBilibiliの動態ページを確認してください。",
+  "tools.publish_dynamic.description": "設定済みアカウントでBilibili動態を公開投稿します。textは通常のテキスト（最大2000文字）、imagesは任意の画像リストで、HTTP(S) URLまたはBase64画像データURLを最大9件指定できます。PNG、JPEG、GIF、WebPに対応し、各10 MiB以下です。本文か画像のいずれかが必要です。dynamic_idとurlを返します。監視の開始は不要です。投稿結果が不明な場合は自動で再試行せず、先にBilibiliの動態を確認してください。"
 }
