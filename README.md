@@ -122,6 +122,9 @@
 - `bilibili_api` — B站 API 封装库
 - `httpx` — 异步 HTTP 客户端（用于图片下载）
 
+Pillow 固定为 `12.2.0`：`13.0.0` 的 Linux wheel 内含一个原生库，其打包压缩比超过
+N.E.K.O 安装器的 200:1 限制，导致发布校验失败。固定版本保留图片能力，并保持归档安全检查不变。
+
 ## 开发与发布
 
 本仓库是独立插件源，源码目录可保留仓库名 `n.e.k.o_plugin_bilibili_integration`。
