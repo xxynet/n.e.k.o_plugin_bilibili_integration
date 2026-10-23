@@ -203,5 +203,21 @@
   "ui.error.clear_failed": "削除に失敗しました",
   "ui.error.invalid_uid": "数字のみの Bilibili UID を入力してください",
   "ui.error.add_failed": "追加に失敗しました",
-  "ui.error.remove_failed": "削除に失敗しました"
+  "ui.error.remove_failed": "削除に失敗しました",
+  "actions.publish_dynamic.label": "動態を投稿",
+  "entries.publish_dynamic.name": "Bilibili動態を投稿",
+  "entries.publish_dynamic.description": "ログイン中のアカウントでテキストまたは画像付き動態を公開します。画像は最大9枚です",
+  "ui.dynamic.section": "投稿",
+  "ui.dynamic.hint": "保存済みアカウントで公開投稿します。監視の開始は不要です。本文は2000文字まで、画像は9枚までで各10 MiB以下です。",
+  "ui.dynamic.text": "投稿本文",
+  "ui.dynamic.files": "画像を選択（任意）",
+  "ui.dynamic.urls": "画像URL（任意、1行に1つ）",
+  "ui.dynamic.view": "投稿した動態を見る",
+  "ui.dynamic.success": "動態を投稿しました",
+  "ui.dynamic.invalid_input": "2000文字以内の本文、または9枚以内の画像を入力してください。画像URLはHTTP(S)に対応しています。",
+  "ui.dynamic.invalid_image": "有効なPNG、JPEG、GIF、WebP画像を使用してください。",
+  "ui.dynamic.image_too_large": "画像は空でなく、各10 MiB以下にしてください。",
+  "ui.dynamic.not_configured": "先にBilibiliのログイン情報を保存してください。",
+  "ui.dynamic.failed": "投稿できませんでした。ログイン状態と画像の取得元を確認してください。",
+  "ui.dynamic.uncertain": "投稿結果を確認できません。重複を防ぐため、再投稿の前にBilibiliの動態ページを確認してください。"
 }

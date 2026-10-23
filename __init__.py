@@ -21,10 +21,11 @@ from plugin.sdk.plugin import (
 
 from .bili_client import BiliDMClient
 from .config_store import BiliDMConfigStore
+from .dynamic_publisher import DynamicInputError, DynamicPublishUncertainError
 from .permission import PermissionManager
 from .qr_login import BiliDMQrLogin
 
-UI_ASSET_VERSION = "1.2.4"
+UI_ASSET_VERSION = "1.3.0"
 
 
 def build_open_ui_payload(*, plugin_id: str, available: bool) -> dict[str, Any]:
@@ -890,6 +891,41 @@ class BiliDMPlugin(NekoPluginBase):
         except Exception as e:
             self.logger.error(f"发送私信失败: {e}")
             return Err(SdkError(f"SEND_FAILED: 发送私信失败: {e}"))
+
+    @ui.action(
+        id="publish_dynamic",
+        label=tr("actions.publish_dynamic.label", default="发布动态"),
+    )
+    @plugin_entry(
+        id="publish_dynamic",
+        name=tr("entries.publish_dynamic.name", default="发布 B站动态"),
+        description=tr(
+            "entries.publish_dynamic.description",
+            default="使用当前登录账号发布公开的文字或图文动态，最多 9 张图片",
+        ),
+        input_schema={
+            "type": "object",
+            "properties": {
+                "text": {"type": "string", "maxLength": 2000, "default": ""},
+                "images": {"type": "array", "items": {"type": "string"}, "maxItems": 9},
+            },
+            "additionalProperties": False,
+        },
+    )
+    async def publish_dynamic(self, text: str = "", images: list[str] | None = None, **_):
+        """Publish through the configured account; listening is not required."""
+        async with self._lifecycle_lock:
+            if not self.bili_client:
+                return Err(SdkError("DYNAMIC_NOT_CONFIGURED: Save Bilibili login credentials first"))
+            try:
+                return Ok(await self.bili_client.publish_dynamic(text, images))
+            except DynamicInputError as exc:
+                return Err(SdkError(str(exc)))
+            except DynamicPublishUncertainError:
+                return Err(SdkError("DYNAMIC_PUBLISH_UNCERTAIN: Check Bilibili before publishing again"))
+            except Exception as exc:
+                self.logger.warning(f"Bilibili dynamic publishing failed: {type(exc).__name__}")
+                return Err(SdkError("DYNAMIC_PUBLISH_FAILED: Unable to publish the dynamic"))
 
     @ui.action(
         id="add_trusted_user",

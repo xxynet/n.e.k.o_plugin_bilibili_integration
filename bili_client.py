@@ -1060,6 +1060,13 @@ class BiliDMClient:
                 self.logger.error(f"下载图片失败 {url}: {e}")
             return None
 
+    async def publish_dynamic(self, text: str = "", images: list[str] | None = None) -> dict[str, str]:
+        """Publish a public text or image dynamic without starting message listeners."""
+        from .dynamic_publisher import publish_dynamic
+
+        self._disable_brotli_for_bilibili_api()
+        return await publish_dynamic(self._credential, text, images)
+
     async def send_text(self, user_id: str, text: str):
         """发送文本私信"""
         from bilibili_api.session import EventType as SessionEventType
